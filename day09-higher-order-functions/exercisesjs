@@ -1,0 +1,121 @@
+// LEVEL 1
+// EX01
+// Explain the difference between forEach, map, filter, and reduce.
+// forEach intera os itens de um array. map altera os itens de um array, podendo, por exemplo, deixar strings em letras maiúsculas. filter filtra itens do array que suprem todas as condições estabelecidas. reduce retorna um único valor depois da execução da função.
+
+import { typeOf } from "mathjs";
+
+const countries = ["Finland", "Sweden", "Denmark", "Norway", "IceLand"];
+const names = ["Asabeneh", "Mathias", "Elias", "Brook"];
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const products = [
+  { product: "banana", price: 3 },
+  { product: "mango", price: 6 },
+  { product: "potato", price: " " },
+  { product: "avocado", price: 8 },
+  { product: "coffee", price: 10 },
+  { product: "tea", price: "" },
+];
+
+// EX02
+// Define a callback function before you use it in forEach, map, filter or reduce.
+const callback = (n) => {
+  return n;
+};
+
+// EX03
+// Use forEach to console.log each country in the countries array.
+countries.forEach((country) => console.log(country));
+
+// EX04
+// Use forEach to console.log each name in the names array.
+names.forEach((nome) => console.log(nome));
+
+// EX05
+// Use forEach to console.log each number in the numbers array.
+numbers.forEach((num) => console.log(num));
+
+// EX06
+// Use map to create a new array by changing each country to uppercase in the countries array.
+countries.map((country) => console.log(country.toUpperCase()));
+
+// EX07
+// Use map to create an array of countries length from countries array.
+const countriesLength = [];
+countries.map((country) => {
+  countriesLength.push(country.length);
+});
+console.log(countriesLength);
+
+// EX08
+// Use map to create a new array by changing each number to square in the numbers array
+const square = [];
+numbers.map((num) => {
+  square.push(num ** 2);
+});
+
+console.log(square);
+
+// EX09
+// Use map to change to each name to uppercase in the names array
+names.map((name) => console.log(name.toLocaleUpperCase()));
+
+// EX10
+// Use map to map the products array to its corresponding prices.
+const prices = products.map((product) => product.price);
+console.log(prices);
+
+// EX11
+// Use filter to filter out countries containing land.
+const includesLand = countries.filter((country) =>
+  country.toLowerCase().includes("land")
+);
+console.log(includesLand);
+
+// EX12
+// Use filter to filter out countries having six character.
+const sixChar = countries.filter((country) => country.length === 6);
+console.log(sixChar);
+
+// EX13
+// Use filter to filter out countries containing six letters and more in the country array.
+const moreThanSixChar = countries.filter((country) => country.length >= 6);
+console.log(moreThanSixChar);
+
+// EX14
+// Use filter to filter out country start with 'E';
+const startWithE = countries.filter((country) => country.startsWith("E"));
+console.log(startWithE);
+
+// EX15
+// Use filter to filter out only prices with values.
+const validPrice = products.filter((product) => product.price >= 0);
+console.log(validPrice);
+
+// EX16
+// Declare a function called getStringLists which takes an array as a parameter and then returns an array only with string items.
+function getStringLists(array) {
+  const stringItems = array.filter((value) => typeof value === "string");
+  return stringItems;
+}
+
+const mixedArray = [1, 2, "abc", "def", 54, 23];
+console.log(getStringLists(mixedArray));
+
+// EX17
+// Use reduce to sum all the numbers in the numbers array.
+sum = 0;
+const number = numbers.reduce((acc, cur) => (sum += cur), 0);
+
+console.log(number);
+
+// EX18
+// Use reduce to concatenate all the countries and to produce this sentence: Estonia, Finland, Sweden, Denmark, Norway, and IceLand are north European countries
+const countriesWithoutLastCountry = countries.slice(0, countries.length - 1);
+const lastCountry = countries.slice(countries.length - 1);
+const frase = countriesWithoutLastCountry.reduce(
+  (prev, cur) => prev + ", " + cur,
+  "Estonia"
+);
+
+console.log(`${frase} and ${lastCountry} are north European countries.`);
