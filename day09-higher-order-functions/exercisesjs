@@ -119,3 +119,63 @@ const frase = countriesWithoutLastCountry.reduce(
 );
 
 console.log(`${frase} and ${lastCountry} are north European countries.`);
+
+// EX19
+// Explain the difference between some and every
+// Some verifica se pelo menos um elemento do array atende aos requisitos, já every verifica se todos os elementos correspondem aos requisitos.
+
+// EX20
+// Use some to check if some names' length greater than seven in names array
+const maisQueSete = names.some((nome) => nome.length > 7);
+console.log(maisQueSete);
+
+// EX21
+// Use every to check if all the countries contain the word land
+const possuemLand = countries.every((pais) =>
+  pais.toLowerCase().includes("land")
+);
+console.log(possuemLand);
+
+// EX22
+// Explain the difference between find and findIndex.
+// find retorna o primeiro item do array que atende aos requisitos, se nenhum elemento satisfaz a condição o retorno é 'undefined'; já findIndex retorna o index do primeiro elemento do array que atende aos requisitos, se nenhum elemento satisfaz retorna -1
+
+// EX23
+// Use find to find the first country containing only six letters in the countries array
+const sixLetterss = countries.find((country) => country.length === 6);
+console.log(sixLetterss);
+
+// EX24
+// Use findIndex to find the position of the first country containing only six letters in the countries array
+const sixLetters = countries.findIndex((country) => country.length === 6);
+console.log(sixLetters);
+
+// EX25
+// Use findIndex to find the position of Norway if it doesn't exist in the array you will get -1.
+const norway = countries.findIndex((country) => country === "Norway");
+console.log(norway);
+
+// EX25
+// Use findIndex to find the position of Russia if it doesn't exist in the array you will get -1.
+const russia = countries.findIndex((country) => country === "Russia");
+console.log(russia);
+
+// LEVEL 2
+// EX01
+// Find the total price of products by chaining two or more array iterators(eg. arr.map(callback).filter(callback).reduce(callback))
+sum = 0;
+const validPrices = products.filter((product) => product.price > 0);
+
+const pricesArr = validPrices.map((prices) => (sum += prices.price));
+
+const totalPrice = pricesArr.slice(-1);
+console.log(totalPrice);
+
+// EX02
+// Find the sum of price of products using only reduce reduce(callback))
+const getPrice = (element) => {
+  return element.price;
+};
+
+const sumOfPrices = products.reduce((acc, cur) => +acc + +getPrice(cur), 0);
+console.log(sumOfPrices); // 27
