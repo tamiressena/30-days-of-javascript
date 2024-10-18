@@ -1,0 +1,79 @@
+body {
+    padding: 0 10%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 60px;
+}
+
+#skills {
+    height: 80px;
+    width: 100%;
+    background-color: #F3E9E2;
+}
+
+/* .animatedText {
+    animation: 3s linear 1s running slidein;
+} */
+@keyframes slidein {
+    from {
+      margin-left:  -2%;
+      width:  300%;
+      color: rgb(193, 193, 193);
+    }
+  
+    to {
+      margin-left:  1%;
+      width:  100%;
+      color: rgb(76, 76, 76);
+    }
+  }
+  
+  .animatedText {
+    animation: slidein  1.7s infinite;
+  }
+
+span {
+    font-weight: 700;
+}
+
+#courses {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10%;
+}
+
+#courses p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 150px;
+    margin: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    background-color: rgb(251, 251, 251);
+    text-transform: uppercase;
+    border: 1px solid aliceblue;
+    transition: linear 0.3s;
+}
+
+#courses p:hover {
+    background-color: #F3E9E2;
+    transform: scale(1.08);
+}
+
+#techs {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.languages {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 11px;
+}
